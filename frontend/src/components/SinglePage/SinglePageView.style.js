@@ -116,6 +116,69 @@ export const RoomSelectionWrapper = styled.div`
     }
   }
 
+  .date-guest-selection {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .date-picker-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 280px;
+
+      label {
+        font-weight: 600;
+        color: #333;
+        font-size: 14px;
+      }
+
+      .date-range-picker {
+        width: 100%;
+        
+        .ant-picker-input > input {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .guests-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 140px;
+
+      label {
+        font-weight: 600;
+        color: #333;
+        font-size: 14px;
+      }
+
+      .guests-select {
+        width: 100%;
+        
+        .ant-select-selector {
+          height: 32px;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      
+      .date-picker-group,
+      .guests-selector {
+        min-width: 100%;
+      }
+    }
+  }
+
   .rooms-grid {
     display: flex;
     flex-direction: column;
