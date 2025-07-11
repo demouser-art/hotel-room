@@ -16,6 +16,12 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
   const [roomQuantities, setRoomQuantities] = useState({});
   const [selectedRoomForModal, setSelectedRoomForModal] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [checkInDate, setCheckInDate] = useState(null);
+  const [checkOutDate, setCheckOutDate] = useState(null);
+  const [guests, setGuests] = useState(2);
+
+  const { RangePicker } = DatePicker;
+  const { Option } = Select;
 
   const handleRoomQuantityChange = (roomId, quantity) => {
     setRoomQuantities(prev => ({
