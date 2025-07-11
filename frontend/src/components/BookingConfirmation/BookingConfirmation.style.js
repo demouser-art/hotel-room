@@ -333,7 +333,7 @@ const BookingConfirmationWrapper = styled.div`
       
       &:focus {
         outline: none;
-        border-color: #ff5a5f;
+        border-color: #1890ff;
       }
     }
   }
