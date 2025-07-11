@@ -3,8 +3,7 @@ import { Card } from 'antd';
 import { 
   EnvironmentOutlined, 
   ClockCircleOutlined, 
-  CarOutlined,
-  WalkOutlined 
+  CarOutlined
 } from '@ant-design/icons';
 import styled from 'styled-components';
 
@@ -136,7 +135,7 @@ const LocalHighlights = ({ highlights }) => {
                   <span>{highlight.distance}</span>
                 </div>
                 <div className="distance-item">
-                  <WalkOutlined className="distance-icon" />
+                  <span>🚶</span>
                   <span>{highlight.walkTime}</span>
                 </div>
                 <div className="distance-item">
