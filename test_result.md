@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-## user_problem_statement: "in singlePageView in room type room image is not proper. Also it is possible that there are multiple media for room type and by media type I mean it is possible that videos are also there. Add a More details link type button and clicking on that open a modal which display single room details try to keep design like we have for multiple media display how many photos/video we have and clicking on that also open same modal"
+## user_problem_statement: "Fix existing issue and create a new booking confirmation page with current design like I shared screenshot"
 
 ## backend:
   - task: "Basic FastAPI setup"
