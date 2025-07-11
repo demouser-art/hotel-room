@@ -128,3 +128,5 @@ const useDataApi = (url) => {
 
   return { data, loading, error };
 };
+
+export default useDataApi;
