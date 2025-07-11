@@ -162,15 +162,19 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
                 >
                   {room.available === 0 ? 'Not Available' : 'Select Room'}
                 </Button>
-                <Button
-                  type="default"
-                  className="more-details-btn"
-                  icon={<EyeOutlined />}
-                  onClick={() => showRoomDetails(room)}
-                >
-                  More Details
-                </Button>
               </div>
+
+              {room.media && room.media.length > 0 && (
+                <div className="more-details-link">
+                  <Button 
+                    type="link" 
+                    onClick={() => showRoomDetails(room)}
+                    className="details-link-btn"
+                  >
+                    More Details
+                  </Button>
+                </div>
+              )}
             </div>
           </RoomCard>
         ))}
