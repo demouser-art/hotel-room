@@ -22,6 +22,7 @@ import isEmpty from 'lodash/isEmpty';
 
 const SinglePage = () => {
   let { slug } = useParams();
+  const navigate = useNavigate();
   const { href } = useLocation();
   const [isModalShowing, setIsModalShowing] = useState(false);
   const [selectedRooms, setSelectedRooms] = useState([]);
