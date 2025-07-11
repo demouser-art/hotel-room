@@ -31,7 +31,7 @@ const BookingConfirmationWrapper = styled.div`
       color: #333;
       
       .logo-icon {
-        color: #ff5a5f;
+        color: #1890ff;
       }
     }
     
