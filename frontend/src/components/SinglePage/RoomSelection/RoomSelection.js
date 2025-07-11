@@ -51,6 +51,43 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
     message.success('Room removed from selection');
   };
 
+  const showRoomDetails = (room) => {
+    setSelectedRoomForModal(room);
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+    setSelectedRoomForModal(null);
+  };
+
+  const getMediaCount = (room) => {
+    if (!room.media || room.media.length === 0) return '';
+    
+    const photoCount = room.media.filter(m => m.type === 'image').length;
+    const videoCount = room.media.filter(m => m.type === 'video').length;
+    
+    if (photoCount > 0 && videoCount > 0) {
+      return `${photoCount} Photo${photoCount > 1 ? 's' : ''} + ${videoCount} Video${videoCount > 1 ? 's' : ''}`;
+    } else if (photoCount > 0) {
+      return `${photoCount} Photo${photoCount > 1 ? 's' : ''}`;
+    } else if (videoCount > 0) {
+      return `${videoCount} Video${videoCount > 1 ? 's' : ''}`;
+    }
+    return '';
+  };
+
+  const getMainImage = (room) => {
+    // Get the first image from media array, or fallback to image.url
+    if (room.media && room.media.length > 0) {
+      const firstImage = room.media.find(m => m.type === 'image');
+      if (firstImage) {
+        return firstImage.url;
+      }
+    }
+    return room.image?.url || '/images/default-room.jpg';
+  };
+
   return (
     <RoomSelectionWrapper>
       <div className="room-selection-header">
