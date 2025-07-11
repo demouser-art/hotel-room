@@ -75,10 +75,13 @@ const SinglePage = () => {
   };
 
   const handleBookNow = (bookingData) => {
-    // Here you would integrate with your booking system
-    console.log('Booking data:', bookingData);
-    message.success('Redirecting to booking page...');
-    // You can redirect to a booking page or open a booking modal
+    // Navigate to booking confirmation page with booking data
+    navigate(`/booking/${slug}`, { 
+      state: { 
+        ...bookingData,
+        hotelData: data[0] // Pass hotel data as well
+      } 
+    });
   };
 
   const handleContactHotel = () => {
