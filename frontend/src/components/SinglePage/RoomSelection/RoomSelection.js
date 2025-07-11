@@ -268,6 +268,17 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
               </div>
             ))}
           </div>
+          
+          <div className="total-section">
+            <div className="total-breakdown">
+              <span>Total for {calculateNights()} night{calculateNights() > 1 ? 's' : ''}</span>
+              <span>${calculateTotal()}</span>
+            </div>
+            <div className="grand-total">
+              <span>Grand Total</span>
+              <span>${calculateTotal()}</span>
+            </div>
+          </div>
         </SelectedRoomsWrapper>
       )}
       
