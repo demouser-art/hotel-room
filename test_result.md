@@ -255,15 +255,18 @@
 
   - task: "Multiple Media Support"
     implemented: true
-    working: true
+    working: false
     file: "/app/frontend/src/components/SinglePage/RoomDetailsModal/RoomDetailsModal.js"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Added support for multiple media types (photos and videos) in room types with proper media structure in data file"
+      - working: false
+        agent: "testing"
+        comment: "CRITICAL: useDataApi returns hardcoded mock data without media arrays. RoomDetailsModal expects room.media array but receives old data structure. Multiple media support cannot function without proper data structure from hotel-single.json file."
 
   - task: "Room Details Modal"
     implemented: true
