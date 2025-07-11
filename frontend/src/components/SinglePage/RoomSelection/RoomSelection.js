@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { InputNumber, Button, message } from 'antd';
+import { InputNumber, Button, message, DatePicker, Select } from 'antd';
 import { 
   UserOutlined, 
   HomeOutlined,
   EyeOutlined,
   PictureOutlined,
-  VideoCameraOutlined
+  VideoCameraOutlined,
+  CalendarOutlined
 } from '@ant-design/icons';
 import { RoomSelectionWrapper, RoomCard, SelectedRoomsWrapper } from '../SinglePageView.style';
 import RoomDetailsModal from '../RoomDetailsModal/RoomDetailsModal';
+import dayjs from 'dayjs';
 
 const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelection }) => {
   const [roomQuantities, setRoomQuantities] = useState({});
