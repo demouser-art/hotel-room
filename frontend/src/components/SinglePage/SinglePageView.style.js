@@ -130,6 +130,9 @@ export const RoomCard = styled.div`
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  min-height: 200px;
 
   &:hover {
     transform: translateY(-4px);
@@ -137,7 +140,9 @@ export const RoomCard = styled.div`
   }
 
   .room-image {
-    height: 200px;
+    width: 300px;
+    min-width: 300px;
+    height: 100%;
     overflow: hidden;
     position: relative;
 
@@ -161,7 +166,11 @@ export const RoomCard = styled.div`
   }
 
   .room-content {
+    flex: 1;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .room-header {
       display: flex;
@@ -169,15 +178,41 @@ export const RoomCard = styled.div`
       align-items: flex-start;
       margin-bottom: 12px;
 
-      h3 {
-        font-size: 20px;
-        font-weight: 600;
-        color: #1a1a1a;
-        margin: 0;
+      .room-title-section {
+        flex: 1;
+        
+        h3 {
+          font-size: 20px;
+          font-weight: 600;
+          color: #1a1a1a;
+          margin: 0 0 8px 0;
+        }
+
+        .room-info {
+          display: flex;
+          gap: 16px;
+          margin-bottom: 8px;
+          font-size: 14px;
+          color: #666;
+
+          span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+        }
+
+        .room-description {
+          color: #666;
+          font-size: 14px;
+          line-height: 1.5;
+          margin-bottom: 12px;
+        }
       }
 
       .room-price {
         text-align: right;
+        min-width: 120px;
 
         .current-price {
           font-size: 24px;
@@ -197,30 +232,6 @@ export const RoomCard = styled.div`
           color: #666;
           display: block;
         }
-      }
-    }
-
-    .room-details {
-      margin-bottom: 16px;
-
-      .room-info {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 8px;
-        font-size: 14px;
-        color: #666;
-
-        span {
-          display: flex;
-          align-items: center;
-          gap: 4px;
-        }
-      }
-
-      .room-description {
-        color: #666;
-        font-size: 14px;
-        line-height: 1.5;
       }
     }
 
@@ -253,6 +264,7 @@ export const RoomCard = styled.div`
       display: flex;
       gap: 12px;
       align-items: center;
+      justify-content: flex-end;
 
       .quantity-selector {
         display: flex;
@@ -266,15 +278,41 @@ export const RoomCard = styled.div`
       }
 
       .select-room-btn {
-        flex: 1;
         height: 40px;
         border-radius: 6px;
         font-weight: 600;
+        padding: 0 24px;
         
         &:disabled {
           opacity: 0.6;
           cursor: not-allowed;
         }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    
+    .room-image {
+      width: 100%;
+      height: 200px;
+    }
+
+    .room-content {
+      .room-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+
+        .room-price {
+          text-align: left;
+          min-width: auto;
+        }
+      }
+
+      .room-actions {
+        justify-content: space-between;
       }
     }
   }
