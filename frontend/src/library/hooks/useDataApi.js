@@ -150,44 +150,84 @@ const useDataApi = (url) => {
             },
             localHighlights: [
               {
-                id: 1,
-                name: 'Brooklyn Bridge',
-                category: 'Landmark',
-                description: 'Iconic suspension bridge connecting Manhattan and Brooklyn',
-                distance: '1.2 km',
-                walkTime: '15 min',
-                driveTime: '5 min',
-                image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400'
+                category: 'Hall',
+                locations: [
+                  {
+                    id: 1,
+                    name: 'Chargoggagoggman',
+                    address: '68-32 Main St, Flushing, Queens',
+                    walkTime: '1 min',
+                    driveTime: '1 min',
+                    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400',
+                    coordinates: { lat: 40.7589, lng: -73.8294 }
+                  },
+                  {
+                    id: 2,
+                    name: 'Test',
+                    address: '6850 Main St, Queens',
+                    walkTime: '1 min',
+                    driveTime: '1 min',
+                    image: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=400',
+                    coordinates: { lat: 40.7614, lng: -73.8370 }
+                  }
+                ]
               },
               {
-                id: 2,
-                name: 'DUMBO Waterfront',
-                category: 'Recreation',
-                description: 'Beautiful waterfront park with Manhattan skyline views',
-                distance: '800 m',
-                walkTime: '10 min',
-                driveTime: '3 min',
-                image: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=400'
+                category: 'New Test Category 1',
+                locations: [
+                  {
+                    id: 3,
+                    name: '1219-02',
+                    address: '68-32 Main St, Flushing',
+                    walkTime: '1 min',
+                    driveTime: '1 min',
+                    coordinates: { lat: 40.7589, lng: -73.8294 }
+                  },
+                  {
+                    id: 4,
+                    name: '1219-10',
+                    address: '68-32 Main St, Flushing',
+                    walkTime: '3 min',
+                    driveTime: '1 min',
+                    coordinates: { lat: 40.7614, lng: -73.8370 }
+                  }
+                ]
               },
               {
-                id: 3,
-                name: 'Time Out Market',
-                category: 'Food & Dining',
-                description: 'Food hall featuring local vendors and international cuisine',
-                distance: '1.5 km',
-                walkTime: '18 min',
-                driveTime: '6 min',
-                image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400'
+                category: 'New',
+                icon: 'NEW',
+                locations: [
+                  {
+                    id: 5,
+                    name: 'Attraction 01',
+                    address: '68-32 Main St, Flushing',
+                    walkTime: '1 min',
+                    driveTime: '1 min',
+                    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400',
+                    coordinates: { lat: 40.7589, lng: -73.8294 }
+                  },
+                  {
+                    id: 6,
+                    name: '1219-03',
+                    address: '68-32 Main St, Flushing',
+                    walkTime: '4 min',
+                    driveTime: '1 min',
+                    coordinates: { lat: 40.7614, lng: -73.8370 }
+                  }
+                ]
               },
               {
-                id: 4,
-                name: 'Brooklyn Heights Promenade',
-                category: 'Recreation',
-                description: 'Historic walkway with spectacular harbor views',
-                distance: '2 km',
-                walkTime: '25 min',
-                driveTime: '8 min',
-                image: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=400'
+                category: 'New Attractions...',
+                locations: [
+                  {
+                    id: 7,
+                    name: 'Some Attraction 1',
+                    address: '68-32 Main St, Flushing',
+                    walkTime: '1 min',
+                    driveTime: '1 min',
+                    coordinates: { lat: 40.7589, lng: -73.8294 }
+                  }
+                ]
               }
             ],
             reviews: [
