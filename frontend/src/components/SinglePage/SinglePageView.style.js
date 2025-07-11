@@ -164,34 +164,23 @@ export const RoomCard = styled.div`
       font-weight: 600;
     }
 
-    .media-info-overlay {
+    .photo-count-overlay {
       position: absolute;
       bottom: 12px;
       left: 12px;
-      right: 12px;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.8);
       color: white;
-      padding: 8px;
+      padding: 6px 12px;
       border-radius: 4px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
 
-      .media-count {
-        font-size: 12px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: #1890ff;
-        }
-      }
-
-      .media-icons {
-        display: flex;
-        gap: 4px;
-        font-size: 12px;
+      &:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: translateY(-1px);
       }
     }
   }
