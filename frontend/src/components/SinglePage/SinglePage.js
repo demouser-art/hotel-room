@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useLocation } from '../../library/hooks/useLocation';
 import Sticky from 'react-stickynode';
 import { Row, Col, Modal, Button, message } from 'antd';
