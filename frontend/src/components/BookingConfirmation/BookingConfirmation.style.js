@@ -45,7 +45,7 @@ const BookingConfirmationWrapper = styled.div`
         font-size: 14px;
         
         &:hover {
-          color: #ff5a5f;
+          color: #1890ff;
         }
       }
     }
