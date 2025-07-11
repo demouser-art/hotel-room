@@ -96,6 +96,30 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
     return room.image?.url || '/images/default-room.jpg';
   };
 
+  const handleDateChange = (dates) => {
+    if (dates && dates.length === 2) {
+      setCheckInDate(dates[0]);
+      setCheckOutDate(dates[1]);
+    } else {
+      setCheckInDate(null);
+      setCheckOutDate(null);
+    }
+  };
+
+  const calculateNights = () => {
+    if (checkInDate && checkOutDate) {
+      return checkOutDate.diff(checkInDate, 'day');
+    }
+    return 1; // Default to 1 night if no dates selected
+  };
+
+  const calculateTotal = () => {
+    const nights = calculateNights();
+    return selectedRooms.reduce((total, room) => {
+      return total + (room.price * room.quantity * nights);
+    }, 0);
+  };
+
   return (
     <RoomSelectionWrapper>
       <div className="room-selection-header">
