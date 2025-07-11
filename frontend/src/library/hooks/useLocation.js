@@ -1,6 +1,6 @@
 import { useLocation as useRouterLocation } from 'react-router-dom';
 
-export const useLocation = () => {
+const useLocation = () => {
   const location = useRouterLocation();
   return {
     href: window.location.href,
@@ -9,3 +9,6 @@ export const useLocation = () => {
     hash: location.hash,
   };
 };
+
+export { useLocation };
+export default useLocation;
