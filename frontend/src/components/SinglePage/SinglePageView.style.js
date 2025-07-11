@@ -163,6 +163,37 @@ export const RoomCard = styled.div`
       font-size: 12px;
       font-weight: 600;
     }
+
+    .media-info-overlay {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 8px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .media-count {
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #1890ff;
+        }
+      }
+
+      .media-icons {
+        display: flex;
+        gap: 4px;
+        font-size: 12px;
+      }
+    }
   }
 
   .room-content {
