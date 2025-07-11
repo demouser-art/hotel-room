@@ -285,12 +285,12 @@ const BookingConfirmationWrapper = styled.div`
       font-weight: 500;
       
       &:hover {
-        border-color: #ff5a5f;
+        border-color: #1890ff;
       }
       
       &.active {
-        border-color: #ff5a5f;
-        background: #fff8f8;
+        border-color: #1890ff;
+        background: #f0f8ff;
       }
       
       .card-icon {
