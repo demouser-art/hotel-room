@@ -168,6 +168,14 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
                 >
                   {room.available === 0 ? 'Not Available' : 'Select Room'}
                 </Button>
+                <Button
+                  type="default"
+                  className="more-details-btn"
+                  icon={<EyeOutlined />}
+                  onClick={() => showRoomDetails(room)}
+                >
+                  More Details
+                </Button>
               </div>
             </div>
           </RoomCard>
