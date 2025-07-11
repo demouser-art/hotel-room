@@ -256,14 +256,14 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
                 <div className="room-info">
                   <div className="room-type">{room.name}</div>
                   <div className="room-details">
-                    {room.quantity} room{room.quantity > 1 ? 's' : ''}
+                    {room.quantity} room{room.quantity > 1 ? 's' : ''} × {calculateNights()} night{calculateNights() > 1 ? 's' : ''}
                   </div>
                 </div>
                 <div className="room-total">
                   <div className="quantity">
-                    ${room.price} × {room.quantity}
+                    ${room.price} × {room.quantity} × {calculateNights()}
                   </div>
-                  <div className="price">${room.price * room.quantity}</div>
+                  <div className="price">${room.price * room.quantity * calculateNights()}</div>
                 </div>
               </div>
             ))}
