@@ -52,6 +52,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hotel/:slug" element={<SinglePage />} />
           <Route path="/post/:slug" element={<SinglePage />} />
+          <Route path="/booking/:slug" element={<BookingConfirmation />} />
         </Routes>
       </BrowserRouter>
     </div>
