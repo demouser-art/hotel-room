@@ -11,6 +11,7 @@ import Amenities from './Amenities/Amenities';
 import Location from './Location/Location';
 import Review from './Review/Review';
 import RoomSelection from './RoomSelection/RoomSelection';
+import LocalHighlights from './LocalHighlights/LocalHighlights';
 import Reservation from './Reservation/Reservation';
 import BottomReservation from './Reservation/BottomReservation';
 import TopBar from './TopBar/TopBar';
@@ -47,15 +48,14 @@ const SinglePage = () => {
     content,
     amenities,
     author,
-    rooms
+    roomTypes,
+    localHighlights
   } = data[0];
 
   const handleRoomSelect = (room) => {
     // Check if room is already selected
     const existingRoomIndex = selectedRooms.findIndex(
-      selectedRoom => selectedRoom.id === room.id && 
-      selectedRoom.checkInDate === room.checkInDate &&
-      selectedRoom.checkOutDate === room.checkOutDate
+      selectedRoom => selectedRoom.id === room.id
     );
 
     if (existingRoomIndex !== -1) {
@@ -73,15 +73,15 @@ const SinglePage = () => {
     setSelectedRooms(updatedRooms);
   };
 
-  const handleBookNow = (rooms) => {
+  const handleBookNow = (bookingData) => {
     // Here you would integrate with your booking system
-    console.log('Booking rooms:', rooms);
+    console.log('Booking data:', bookingData);
     message.success('Redirecting to booking page...');
     // You can redirect to a booking page or open a booking modal
   };
 
   const handleContactHotel = () => {
-    message.info('Contact information: +1-800-HOTEL or info@hotel.com');
+    message.info('Contact information: 1-403-000-9038 x910');
   };
 
   return (
@@ -142,7 +142,6 @@ const SinglePage = () => {
               ratingCount={ratingCount}
             />
             <Amenities amenities={amenities} />
-            <Location location={data[0]} />
           </Col>
           <Col xl={8}>
             {width > 1200 ? (
@@ -175,7 +174,7 @@ const SinglePage = () => {
         <Row gutter={30} style={{ marginTop: 40 }}>
           <Col span={24}>
             <RoomSelection
-              rooms={rooms}
+              roomTypes={roomTypes}
               onRoomSelect={handleRoomSelect}
               selectedRooms={selectedRooms}
               onUpdateSelection={handleUpdateSelection}
@@ -183,6 +182,21 @@ const SinglePage = () => {
           </Col>
         </Row>
 
+        {/* Local Highlights Section */}
+        <Row gutter={30} style={{ marginTop: 40 }}>
+          <Col span={24}>
+            <LocalHighlights highlights={localHighlights} />
+          </Col>
+        </Row>
+
+        {/* Location Section */}
+        <Row gutter={30} style={{ marginTop: 40 }}>
+          <Col span={24}>
+            <Location location={data[0]} />
+          </Col>
+        </Row>
+
+        {/* Reviews Section */}
         <Row gutter={30} style={{ marginTop: 40 }}>
           <Col xl={16}>
             <Review
