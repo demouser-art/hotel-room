@@ -319,6 +319,21 @@ export const RoomCard = styled.div`
           cursor: not-allowed;
         }
       }
+
+      .more-details-btn {
+        height: 40px;
+        border-radius: 6px;
+        font-weight: 600;
+        padding: 0 16px;
+        border: 1px solid #d9d9d9;
+        background: white;
+        color: #666;
+        
+        &:hover {
+          border-color: #1890ff;
+          color: #1890ff;
+        }
+      }
     }
   }
 
