@@ -354,15 +354,15 @@ export const RoomCard = styled.div`
         flex-wrap: wrap;
         gap: 8px;
         
-        .more-details-btn {
-          flex: 1;
-          min-width: 120px;
-        }
-        
         .select-room-btn {
           flex: 1;
           min-width: 120px;
         }
+      }
+
+      .more-details-link {
+        margin-top: 12px;
+        text-align: center;
       }
     }
   }
