@@ -365,7 +365,7 @@ const BookingConfirmationWrapper = styled.div`
         }
         
         .terms-link {
-          color: #ff5a5f;
+          color: #1890ff;
           text-decoration: none;
           
           &:hover {
