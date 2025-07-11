@@ -270,15 +270,18 @@
 
   - task: "Room Details Modal"
     implemented: true
-    working: true
+    working: false
     file: "/app/frontend/src/components/SinglePage/RoomDetailsModal/RoomDetailsModal.js"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Created comprehensive room details modal with media gallery, video support, room information, amenities, and responsive design"
+      - working: false
+        agent: "testing"
+        comment: "CRITICAL: Modal cannot open because room.media is undefined. useDataApi provides old data structure without media arrays. Modal component is properly implemented but cannot function without proper room data containing media array."
 
   - task: "More Details Button"
     implemented: true
