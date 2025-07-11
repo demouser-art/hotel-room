@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { InputNumber, Button, message } from 'antd';
 import { 
   UserOutlined, 
-  HomeOutlined
+  HomeOutlined,
+  EyeOutlined,
+  PictureOutlined,
+  VideoCameraOutlined
 } from '@ant-design/icons';
 import { RoomSelectionWrapper, RoomCard, SelectedRoomsWrapper } from '../SinglePageView.style';
+import RoomDetailsModal from '../RoomDetailsModal/RoomDetailsModal';
 
 const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelection }) => {
   const [roomQuantities, setRoomQuantities] = useState({});
