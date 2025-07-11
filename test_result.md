@@ -300,15 +300,18 @@
 
   - task: "Media Count Display"
     implemented: true
-    working: true
+    working: false
     file: "/app/frontend/src/components/SinglePage/RoomSelection/RoomSelection.js"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Added media count display showing photos and videos count on room cards as clickable overlay that opens room details modal"
+      - working: false
+        agent: "testing"
+        comment: "CRITICAL: Photo count overlays not rendering (0 found). Component checks for room.media && room.media.length > 0 before showing overlay, but useDataApi provides data without media arrays. getMediaCount function returns empty string when no media data available. Implementation is correct but cannot function without proper data structure."
 
   - task: "Enhanced Styling"
     implemented: true
