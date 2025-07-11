@@ -9,7 +9,18 @@ const useDataApi = (url) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // Since we're using mock data, we'll simulate an API call
+        
+        // Fetch data from the provided URL
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const fetchedData = await response.json();
+        setData(fetchedData);
+        setLoading(false);
+      } catch (err) {
+        // Fallback to mock data if fetch fails
+        console.warn('Failed to fetch data from URL, using mock data:', err);
         const mockData = [
           {
             id: 65362,
