@@ -285,15 +285,18 @@
 
   - task: "More Details Button"
     implemented: true
-    working: true
+    working: false
     file: "/app/frontend/src/components/SinglePage/RoomSelection/RoomSelection.js"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Added More Details button to each room card that opens the room details modal"
+      - working: false
+        agent: "testing"
+        comment: "CRITICAL: More Details buttons not rendering (0 found). Component checks for room.media && room.media.length > 0 before showing button, but useDataApi provides data without media arrays. Button implementation is correct but cannot render without proper data structure."
 
   - task: "Media Count Display"
     implemented: true
