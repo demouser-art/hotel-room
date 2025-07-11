@@ -350,7 +350,12 @@
     - "Room Details Modal"
     - "More Details Button"
     - "Media Count Display"
-  stuck_tasks: []
+  stuck_tasks:
+    - "Fix Room Image Display"
+    - "Multiple Media Support"
+    - "Room Details Modal"
+    - "More Details Button"
+    - "Media Count Display"
   test_all: false
   test_priority: "high_first"
 
