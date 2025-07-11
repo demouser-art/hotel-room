@@ -381,7 +381,7 @@ const BookingConfirmationWrapper = styled.div`
     text-align: center;
     
     .complete-booking-btn {
-      background: #ff5a5f;
+      background: #1890ff;
       color: white;
       border: none;
       padding: 16px 48px;
@@ -392,7 +392,7 @@ const BookingConfirmationWrapper = styled.div`
       width: 100%;
       
       &:hover {
-        background: #e0484c;
+        background: #1677ff;
       }
     }
   }
