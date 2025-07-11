@@ -99,10 +99,21 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
         {roomTypes.map(room => (
           <RoomCard key={room.id} available={room.available}>
             <div className="room-image">
-              <img src={room.image.url} alt={room.name} />
+              <img src={getMainImage(room)} alt={room.name} />
               <div className="availability-badge">
                 {room.available > 0 ? `${room.available} available` : 'Sold out'}
               </div>
+              {room.media && room.media.length > 0 && (
+                <div className="media-info-overlay">
+                  <div className="media-count" onClick={() => showRoomDetails(room)}>
+                    {getMediaCount(room)}
+                  </div>
+                  <div className="media-icons">
+                    {room.media.some(m => m.type === 'image') && <PictureOutlined />}
+                    {room.media.some(m => m.type === 'video') && <VideoCameraOutlined />}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="room-content">
