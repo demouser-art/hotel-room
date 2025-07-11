@@ -127,6 +127,35 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
         <p>Select your preferred room type for the best experience</p>
       </div>
 
+      <div className="date-guest-selection">
+        <div className="date-picker-group">
+          <label>Select Dates</label>
+          <RangePicker
+            value={checkInDate && checkOutDate ? [checkInDate, checkOutDate] : []}
+            onChange={handleDateChange}
+            placeholder={['Check-in', 'Check-out']}
+            disabledDate={(current) => {
+              return current && current < dayjs().startOf('day');
+            }}
+            className="date-range-picker"
+          />
+        </div>
+        
+        <div className="guests-selector">
+          <label>Guests</label>
+          <Select
+            value={guests}
+            onChange={setGuests}
+            className="guests-select"
+            suffixIcon={<UserOutlined />}
+          >
+            {[1, 2, 3, 4, 5, 6].map(num => (
+              <Option key={num} value={num}>{num} Guest{num > 1 ? 's' : ''}</Option>
+            ))}
+          </Select>
+        </div>
+      </div>
+
       <div className="rooms-grid">
         {roomTypes.map(room => (
           <RoomCard key={room.id} available={room.available}>
