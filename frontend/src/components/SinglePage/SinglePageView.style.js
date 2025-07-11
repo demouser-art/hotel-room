@@ -117,8 +117,8 @@ export const RoomSelectionWrapper = styled.div`
   }
 
   .rooms-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     margin-top: 30px;
   }
