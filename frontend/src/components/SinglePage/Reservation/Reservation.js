@@ -1,12 +1,15 @@
-import React from 'react';
-import { Card, Button, Divider, message } from 'antd';
+import React, { useState } from 'react';
+import { Card, Button, Divider, DatePicker, InputNumber, message } from 'antd';
 import { 
   CalendarOutlined, 
   TeamOutlined, 
   DollarOutlined,
   CheckCircleOutlined 
 } from '@ant-design/icons';
+import dayjs from 'dayjs';
 import styled from 'styled-components';
+
+const { RangePicker } = DatePicker;
 
 const ReservationWrapper = styled(Card)`
   .ant-card-body {
@@ -25,6 +28,38 @@ const ReservationWrapper = styled(Card)`
     }
 
     p {
+      color: #666;
+      font-size: 14px;
+    }
+  }
+
+  .date-guest-selection {
+    margin-bottom: 24px;
+
+    .selection-item {
+      margin-bottom: 16px;
+
+      label {
+        display: block;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .ant-picker,
+      .ant-input-number {
+        width: 100%;
+      }
+    }
+
+    .nights-display {
+      text-align: center;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 8px;
       color: #666;
       font-size: 14px;
     }
@@ -96,7 +131,7 @@ const ReservationWrapper = styled(Card)`
     }
   }
 
-  .no-rooms-message {
+  .no-selection-message {
     text-align: center;
     padding: 40px 20px;
     color: #666;
@@ -111,47 +146,63 @@ const ReservationWrapper = styled(Card)`
       font-size: 16px;
       margin-bottom: 16px;
     }
-
-    .select-rooms-btn {
-      background: #1890ff;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      
-      &:hover {
-        background: #40a9ff;
-      }
-    }
   }
 `;
 
 const Reservation = ({ selectedRooms = [], onBookNow, onContactHotel }) => {
+  const [checkInDate, setCheckInDate] = useState(null);
+  const [checkOutDate, setCheckOutDate] = useState(null);
+  const [guests, setGuests] = useState(2);
+
+  const handleDateChange = (dates) => {
+    if (dates && dates.length === 2) {
+      setCheckInDate(dates[0]);
+      setCheckOutDate(dates[1]);
+    } else {
+      setCheckInDate(null);
+      setCheckOutDate(null);
+    }
+  };
+
+  const calculateNights = () => {
+    if (checkInDate && checkOutDate) {
+      return checkOutDate.diff(checkInDate, 'day');
+    }
+    return 0;
+  };
+
   const calculateTotal = () => {
-    return selectedRooms.reduce((total, room) => total + room.totalPrice, 0);
+    const nights = calculateNights();
+    if (nights <= 0) return 0;
+    return selectedRooms.reduce((total, room) => total + (room.price * room.quantity * nights), 0);
   };
 
   const getTotalRooms = () => {
     return selectedRooms.reduce((total, room) => total + room.quantity, 0);
   };
 
-  const getTotalGuests = () => {
-    return selectedRooms.reduce((total, room) => total + (room.guests || 2), 0);
-  };
-
-  const getNights = () => {
-    return selectedRooms.length > 0 ? selectedRooms[0].nights : 0;
-  };
-
   const handleBookNow = () => {
+    if (!checkInDate || !checkOutDate) {
+      message.error('Please select check-in and check-out dates');
+      return;
+    }
+
     if (selectedRooms.length === 0) {
       message.warning('Please select at least one room to proceed');
       return;
     }
 
+    const bookingData = {
+      rooms: selectedRooms,
+      checkInDate: checkInDate.format('YYYY-MM-DD'),
+      checkOutDate: checkOutDate.format('YYYY-MM-DD'),
+      guests,
+      nights: calculateNights(),
+      totalAmount: calculateTotal()
+    };
+
     if (onBookNow) {
-      onBookNow(selectedRooms);
+      onBookNow(bookingData);
     } else {
       message.success('Booking feature coming soon!');
     }
@@ -161,105 +212,125 @@ const Reservation = ({ selectedRooms = [], onBookNow, onContactHotel }) => {
     if (onContactHotel) {
       onContactHotel();
     } else {
-      message.info('Contact: +1-800-HOTEL');
+      message.info('Contact: 1-403-000-9038 x910');
     }
   };
-
-  const scrollToRooms = () => {
-    const roomSection = document.querySelector('.room-selection-header');
-    if (roomSection) {
-      roomSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  if (selectedRooms.length === 0) {
-    return (
-      <ReservationWrapper>
-        <div className="no-rooms-message">
-          <div className="empty-icon">🏨</div>
-          <p>No rooms selected yet</p>
-          <p style={{ fontSize: '14px', color: '#999' }}>
-            Choose your perfect room from our selection below
-          </p>
-          <button className="select-rooms-btn" onClick={scrollToRooms}>
-            Select Rooms
-          </button>
-        </div>
-      </ReservationWrapper>
-    );
-  }
 
   return (
     <ReservationWrapper>
       <div className="reservation-header">
-        <h3>Booking Summary</h3>
-        <p>Review your selection before booking</p>
+        <h3>Make a Reservation</h3>
+        <p>Select your dates and complete booking</p>
       </div>
 
-      <div className="reservation-summary">
-        <div className="summary-item">
-          <div className="summary-label">
+      <div className="date-guest-selection">
+        <div className="selection-item">
+          <label>
             <CalendarOutlined />
-            <span>Duration</span>
-          </div>
-          <div className="summary-value">
-            {getNights()} night{getNights() > 1 ? 's' : ''}
-          </div>
+            Select Dates
+          </label>
+          <RangePicker
+            size="large"
+            onChange={handleDateChange}
+            disabledDate={(current) => current && current < dayjs().endOf('day')}
+            placeholder={['Check-in', 'Check-out']}
+          />
         </div>
 
-        <div className="summary-item">
-          <div className="summary-label">
+        <div className="selection-item">
+          <label>
             <TeamOutlined />
-            <span>Guests</span>
-          </div>
-          <div className="summary-value">{getTotalGuests()} guests</div>
+            Number of Guests
+          </label>
+          <InputNumber
+            size="large"
+            min={1}
+            max={20}
+            value={guests}
+            onChange={setGuests}
+          />
         </div>
 
-        <div className="summary-item">
-          <div className="summary-label">
-            <CheckCircleOutlined />
-            <span>Rooms</span>
+        {checkInDate && checkOutDate && (
+          <div className="nights-display">
+            Duration: {calculateNights()} night{calculateNights() > 1 ? 's' : ''}
           </div>
-          <div className="summary-value">{getTotalRooms()} room{getTotalRooms() > 1 ? 's' : ''}</div>
-        </div>
+        )}
+      </div>
 
-        <Divider />
-
-        {selectedRooms.map((room, index) => (
-          <div key={`${room.id}-${index}`} className="summary-item">
-            <div className="summary-label">
-              <span>{room.type} × {room.quantity}</span>
+      {selectedRooms.length > 0 && checkInDate && checkOutDate ? (
+        <>
+          <div className="reservation-summary">
+            <div className="summary-item">
+              <div className="summary-label">
+                <CheckCircleOutlined />
+                <span>Rooms</span>
+              </div>
+              <div className="summary-value">{getTotalRooms()} room{getTotalRooms() > 1 ? 's' : ''}</div>
             </div>
-            <div className="summary-value">${room.totalPrice}</div>
-          </div>
-        ))}
 
-        <div className="summary-item total-item">
-          <div className="summary-label">
-            <DollarOutlined />
-            <span>Total Amount</span>
+            <div className="summary-item">
+              <div className="summary-label">
+                <TeamOutlined />
+                <span>Guests</span>
+              </div>
+              <div className="summary-value">{guests} guests</div>
+            </div>
+
+            <div className="summary-item">
+              <div className="summary-label">
+                <CalendarOutlined />
+                <span>Duration</span>
+              </div>
+              <div className="summary-value">
+                {calculateNights()} night{calculateNights() > 1 ? 's' : ''}
+              </div>
+            </div>
+
+            <Divider />
+
+            {selectedRooms.map((room, index) => (
+              <div key={`${room.id}-${index}`} className="summary-item">
+                <div className="summary-label">
+                  <span>{room.name} × {room.quantity}</span>
+                </div>
+                <div className="summary-value">${room.price * room.quantity * calculateNights()}</div>
+              </div>
+            ))}
+
+            <div className="summary-item total-item">
+              <div className="summary-label">
+                <DollarOutlined />
+                <span>Total Amount</span>
+              </div>
+              <div className="summary-value">${calculateTotal()}</div>
+            </div>
           </div>
-          <div className="summary-value">${calculateTotal()}</div>
+
+          <div className="reservation-actions">
+            <Button
+              type="primary"
+              className="book-now-btn"
+              onClick={handleBookNow}
+            >
+              Book Now - ${calculateTotal()}
+            </Button>
+            
+            <Button
+              type="default"
+              className="contact-btn"
+              onClick={handleContactHotel}
+            >
+              Contact Hotel
+            </Button>
+          </div>
+        </>
+      ) : (
+        <div className="no-selection-message">
+          <div className="empty-icon">📅</div>
+          <p>Select dates and rooms to see pricing</p>
         </div>
-      </div>
-
-      <div className="reservation-actions">
-        <Button
-          type="primary"
-          className="book-now-btn"
-          onClick={handleBookNow}
-        >
-          Book Now - ${calculateTotal()}
-        </Button>
-        
-        <Button
-          type="default"
-          className="contact-btn"
-          onClick={handleContactHotel}
-        >
-          Contact Hotel
-        </Button>
-      </div>
+      )}
     </ReservationWrapper>
   );
 };
