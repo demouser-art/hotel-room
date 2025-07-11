@@ -240,15 +240,18 @@
 
   - task: "Fix Room Image Display"
     implemented: true
-    working: true
+    working: false
     file: "/app/frontend/src/components/SinglePage/RoomSelection/RoomSelection.js"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Fixed room image display issue by implementing getMainImage function to properly select room images from media array instead of showing bathroom images"
+      - working: false
+        agent: "testing"
+        comment: "CRITICAL: useDataApi hook loads hardcoded mock data with old image URLs instead of hotel-single.json with new media structure. Room images show old URLs (http://s3.amazonaws.com/redqteam.com/tripfinder-images/) instead of proper room images from media array. getMainImage function cannot work without proper media data."
 
   - task: "Multiple Media Support"
     implemented: true
