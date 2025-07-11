@@ -1,5 +1,5 @@
-import React from 'react';
-import { Rate } from 'antd';
+import React, { useState } from 'react';
+import { Rate, Modal, Button } from 'antd';
 import { EnvironmentOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 
@@ -55,10 +55,38 @@ const DescriptionWrapper = styled.div`
     p {
       margin-bottom: 16px;
     }
+
+    .read-more-btn {
+      color: #1890ff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0;
+      text-decoration: underline;
+      
+      &:hover {
+        color: #40a9ff;
+      }
+    }
   }
 `;
 
 const Description = ({ content, title, location, rating, ratingCount }) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  
+  const MAX_LENGTH = 150;
+  const shouldTruncate = content && content.length > MAX_LENGTH;
+  const truncatedContent = shouldTruncate ? content.substring(0, MAX_LENGTH) + '...' : content;
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleClose = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <DescriptionWrapper>
       <div className="description-header">
@@ -79,8 +107,31 @@ const Description = ({ content, title, location, rating, ratingCount }) => {
       </div>
 
       <div className="description-content">
-        <p>{content}</p>
+        <p>
+          {truncatedContent}
+          {shouldTruncate && (
+            <button className="read-more-btn" onClick={showModal}>
+              Read More
+            </button>
+          )}
+        </p>
       </div>
+
+      <Modal
+        title="About this property"
+        open={isModalVisible}
+        onCancel={handleClose}
+        footer={[
+          <Button key="close" onClick={handleClose}>
+            Close
+          </Button>
+        ]}
+        width={600}
+      >
+        <div style={{ fontSize: '16px', lineHeight: '1.6', color: '#333' }}>
+          <p>{content}</p>
+        </div>
+      </Modal>
     </DescriptionWrapper>
   );
 };
