@@ -104,14 +104,8 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
                 {room.available > 0 ? `${room.available} available` : 'Sold out'}
               </div>
               {room.media && room.media.length > 0 && (
-                <div className="media-info-overlay">
-                  <div className="media-count" onClick={() => showRoomDetails(room)}>
-                    {getMediaCount(room)}
-                  </div>
-                  <div className="media-icons">
-                    {room.media.some(m => m.type === 'image') && <PictureOutlined />}
-                    {room.media.some(m => m.type === 'video') && <VideoCameraOutlined />}
-                  </div>
+                <div className="photo-count-overlay" onClick={() => showRoomDetails(room)}>
+                  {getMediaCount(room)}
                 </div>
               )}
             </div>
