@@ -12,6 +12,8 @@ import RoomDetailsModal from '../RoomDetailsModal/RoomDetailsModal';
 
 const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelection }) => {
   const [roomQuantities, setRoomQuantities] = useState({});
+  const [selectedRoomForModal, setSelectedRoomForModal] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleRoomQuantityChange = (roomId, quantity) => {
     setRoomQuantities(prev => ({
