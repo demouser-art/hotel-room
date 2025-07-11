@@ -202,12 +202,12 @@ const BookingConfirmationWrapper = styled.div`
       cursor: pointer;
       
       &:hover {
-        border-color: #ff5a5f;
+        border-color: #1890ff;
       }
       
       &:has(input:checked) {
-        border-color: #ff5a5f;
-        background: #fff8f8;
+        border-color: #1890ff;
+        background: #f0f8ff;
       }
     }
 
