@@ -68,11 +68,11 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
     const videoCount = room.media.filter(m => m.type === 'video').length;
     
     if (photoCount > 0 && videoCount > 0) {
-      return `${photoCount} Photo${photoCount > 1 ? 's' : ''} + ${videoCount} Video${videoCount > 1 ? 's' : ''}`;
+      return `${photoCount + videoCount} PHOTOS`;
     } else if (photoCount > 0) {
-      return `${photoCount} Photo${photoCount > 1 ? 's' : ''}`;
+      return `${photoCount} PHOTO${photoCount > 1 ? 'S' : ''}`;
     } else if (videoCount > 0) {
-      return `${videoCount} Video${videoCount > 1 ? 's' : ''}`;
+      return `${videoCount} VIDEO${videoCount > 1 ? 'S' : ''}`;
     }
     return '';
   };
