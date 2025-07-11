@@ -86,7 +86,7 @@ const BookingConfirmation = () => {
           <div className="header-content">
             <div className="logo">
               <span className="logo-icon">🏠</span>
-              <span className="logo-text">Guestay</span>
+              <span className="logo-text">Voyaju</span>
             </div>
             <nav className="nav-links">
               <a href="#" className="nav-link">Explore Camping</a>
