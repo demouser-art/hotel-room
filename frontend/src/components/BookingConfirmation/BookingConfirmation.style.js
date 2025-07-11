@@ -159,13 +159,11 @@ const BookingConfirmationWrapper = styled.div`
     .edit-button {
       background: none;
       border: none;
-      color: #ff5a5f;
-      font-size: 14px;
-      cursor: pointer;
+      color: #666;
       text-decoration: underline;
       
       &:hover {
-        color: #e0484c;
+        color: #1890ff;
       }
     }
   }
