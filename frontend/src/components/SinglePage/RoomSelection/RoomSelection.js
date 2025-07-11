@@ -211,6 +211,12 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
           </div>
         </SelectedRoomsWrapper>
       )}
+      
+      <RoomDetailsModal
+        visible={isModalVisible}
+        onClose={closeModal}
+        room={selectedRoomForModal}
+      />
     </RoomSelectionWrapper>
   );
 };
