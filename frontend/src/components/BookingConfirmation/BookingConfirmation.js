@@ -85,18 +85,13 @@ const BookingConfirmation = () => {
         <div className="container">
           <div className="header-content">
             <div className="logo">
-              <span className="logo-icon">🏠</span>
+              <span className="logo-icon">🏨</span>
               <span className="logo-text">Voyaju</span>
             </div>
             <nav className="nav-links">
-              <a href="#" className="nav-link">Explore Camping</a>
-              <a href="#" className="nav-link">Weekends</a>
-              <a href="#" className="nav-link">Vacation Rentals</a>
-              <a href="#" className="nav-link">Become a Host</a>
-              <a href="#" className="nav-link">Contact Us</a>
-              <a href="#" className="nav-link">My Account</a>
-              <a href="#" className="nav-link">Logout</a>
-              <a href="#" className="nav-link">My Trips</a>
+              <a href="/" className="nav-link">Home</a>
+              <a href="/hotel/luxury-downtown" className="nav-link">Hotels</a>
+              <a href="#" className="nav-link">Contact</a>
             </nav>
           </div>
         </div>
