@@ -35,8 +35,11 @@ const Home = () => {
         </a>
         <p className="mt-5">Building something incredible ~!</p>
         <div style={{ marginTop: '20px' }}>
-          <a href="/hotel/luxury-downtown" style={{ color: '#1890ff', textDecoration: 'none' }}>
+          <a href="/hotel/luxury-downtown" style={{ color: '#1890ff', textDecoration: 'none', display: 'block', marginBottom: '10px' }}>
             → View Hotel Demo
+          </a>
+          <a href="/booking/luxury-downtown" style={{ color: '#1890ff', textDecoration: 'none', display: 'block' }}>
+            → View Booking Confirmation Demo
           </a>
         </div>
       </header>
