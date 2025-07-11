@@ -359,6 +359,18 @@ export const RoomCard = styled.div`
 
       .room-actions {
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        
+        .more-details-btn {
+          flex: 1;
+          min-width: 120px;
+        }
+        
+        .select-room-btn {
+          flex: 1;
+          min-width: 120px;
+        }
       }
     }
   }
