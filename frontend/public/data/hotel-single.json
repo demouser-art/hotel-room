@@ -1,0 +1,289 @@
+[
+  {
+    "id": 1,
+    "title": "Luxury Hotel & Resort",
+    "rating": 4.8,
+    "ratingCount": 124,
+    "price": 250,
+    "location": {
+      "address": "123 Beach Road, Paradise Island",
+      "city": "Paradise City",
+      "country": "Paradise Island"
+    },
+    "content": "Experience luxury and comfort at our beautiful beachfront resort. With world-class amenities and exceptional service, we provide the perfect getaway for both leisure and business travelers.",
+    "amenities": [
+      { "title": "Swimming Pool", "icon": "🏊‍♂️" },
+      { "title": "Free WiFi", "icon": "📶" },
+      { "title": "Spa & Wellness", "icon": "🧘‍♀️" },
+      { "title": "Restaurant", "icon": "🍽️" },
+      { "title": "Fitness Center", "icon": "🏋️‍♂️" },
+      { "title": "Beach Access", "icon": "🏖️" }
+    ],
+    "author": {
+      "name": "Paradise Hotels",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+    },
+    "gallery": [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800",
+      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800",
+      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800",
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800"
+    ],
+    "roomTypes": [
+      {
+        "id": 1,
+        "name": "Luxury Village View Room With Balcony",
+        "description": "Spacious room with village views, private balcony, and modern amenities. Perfect for couples seeking comfort and elegance.",
+        "price": 180,
+        "originalPrice": 220,
+        "maxGuests": 2,
+        "size": "35 sqm",
+        "bedType": "1 King Bed",
+        "available": 5,
+        "image": {
+          "url": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=400&h=300&fit=crop",
+          "alt": "Luxury Village View Room"
+        },
+        "media": [
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&h=600&fit=crop",
+            "alt": "Room overview"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+            "alt": "Bed area"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&h=600&fit=crop",
+            "alt": "Balcony view"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop",
+            "alt": "Bathroom"
+          },
+          {
+            "type": "video",
+            "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "thumbnail": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=400&h=300&fit=crop",
+            "alt": "Room tour video"
+          }
+        ],
+        "amenities": [
+          { "amenityText": "Free WiFi", "icon": "📶" },
+          { "amenityText": "Air Conditioning", "icon": "❄️" },
+          { "amenityText": "Flat-screen TV", "icon": "📺" },
+          { "amenityText": "Private Bathroom", "icon": "🛁" },
+          { "amenityText": "Mini Bar", "icon": "🍷" },
+          { "amenityText": "Balcony", "icon": "🌅" },
+          { "amenityText": "Room Service", "icon": "🍽️" },
+          { "amenityText": "Safe", "icon": "🔒" }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Classic Room with Balcony",
+        "description": "Comfortable classic room with modern amenities and a private balcony. Ideal for business travelers.",
+        "price": 120,
+        "originalPrice": 150,
+        "maxGuests": 2,
+        "size": "28 sqm",
+        "bedType": "1 Queen Bed",
+        "available": 8,
+        "image": {
+          "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+          "alt": "Classic Room"
+        },
+        "media": [
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop",
+            "alt": "Room overview"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&h=600&fit=crop",
+            "alt": "Bed area"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=600&fit=crop",
+            "alt": "Seating area"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1594560913095-8cf34bab916d?w=800&h=600&fit=crop",
+            "alt": "Bathroom"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&h=600&fit=crop",
+            "alt": "Balcony"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
+            "alt": "City view"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
+            "alt": "Amenities"
+          }
+        ],
+        "amenities": [
+          { "amenityText": "Free WiFi", "icon": "📶" },
+          { "amenityText": "Air Conditioning", "icon": "❄️" },
+          { "amenityText": "Flat-screen TV", "icon": "📺" },
+          { "amenityText": "Private Bathroom", "icon": "🛁" },
+          { "amenityText": "Balcony", "icon": "🌅" },
+          { "amenityText": "Work Desk", "icon": "💻" }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Executive Suite",
+        "description": "Spacious suite with separate living area, premium amenities, and stunning views. Perfect for extended stays.",
+        "price": 300,
+        "originalPrice": 350,
+        "maxGuests": 4,
+        "size": "55 sqm",
+        "bedType": "1 King Bed + Sofa Bed",
+        "available": 3,
+        "image": {
+          "url": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=400&h=300&fit=crop",
+          "alt": "Executive Suite"
+        },
+        "media": [
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&h=600&fit=crop",
+            "alt": "Suite overview"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&h=600&fit=crop",
+            "alt": "Living area"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+            "alt": "Bedroom"
+          },
+          {
+            "type": "video",
+            "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "thumbnail": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=400&h=300&fit=crop",
+            "alt": "Suite tour video"
+          }
+        ],
+        "amenities": [
+          { "amenityText": "Free WiFi", "icon": "📶" },
+          { "amenityText": "Air Conditioning", "icon": "❄️" },
+          { "amenityText": "Flat-screen TV", "icon": "📺" },
+          { "amenityText": "Private Bathroom", "icon": "🛁" },
+          { "amenityText": "Mini Bar", "icon": "🍷" },
+          { "amenityText": "Balcony", "icon": "🌅" },
+          { "amenityText": "Room Service", "icon": "🍽️" },
+          { "amenityText": "Safe", "icon": "🔒" },
+          { "amenityText": "Living Area", "icon": "🛋️" },
+          { "amenityText": "Executive Lounge Access", "icon": "🏢" }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Presidential Suite",
+        "description": "Ultimate luxury suite with panoramic views, premium furnishings, and exclusive amenities. The epitome of elegance.",
+        "price": 500,
+        "originalPrice": 600,
+        "maxGuests": 6,
+        "size": "85 sqm",
+        "bedType": "1 King Bed + 2 Twin Beds",
+        "available": 1,
+        "image": {
+          "url": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=400&h=300&fit=crop",
+          "alt": "Presidential Suite"
+        },
+        "media": [
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=600&fit=crop",
+            "alt": "Suite overview"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&h=600&fit=crop",
+            "alt": "Living room"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&h=600&fit=crop",
+            "alt": "Master bedroom"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+            "alt": "Second bedroom"
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1594560913095-8cf34bab916d?w=800&h=600&fit=crop",
+            "alt": "Luxury bathroom"
+          },
+          {
+            "type": "video",
+            "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "thumbnail": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=400&h=300&fit=crop",
+            "alt": "Presidential suite tour"
+          }
+        ],
+        "amenities": [
+          { "amenityText": "Free WiFi", "icon": "📶" },
+          { "amenityText": "Air Conditioning", "icon": "❄️" },
+          { "amenityText": "Multiple TVs", "icon": "📺" },
+          { "amenityText": "2 Bathrooms", "icon": "🛁" },
+          { "amenityText": "Premium Mini Bar", "icon": "🍷" },
+          { "amenityText": "Panoramic Balcony", "icon": "🌅" },
+          { "amenityText": "24/7 Butler Service", "icon": "🍽️" },
+          { "amenityText": "Safe", "icon": "🔒" },
+          { "amenityText": "Separate Living Area", "icon": "🛋️" },
+          { "amenityText": "Executive Lounge Access", "icon": "🏢" },
+          { "amenityText": "Premium Toiletries", "icon": "🧴" },
+          { "amenityText": "Complimentary Breakfast", "icon": "🥐" }
+        ]
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "author": "John Smith",
+        "rating": 5,
+        "date": "2024-01-15",
+        "content": "Amazing experience! The staff was incredibly helpful and the room was perfect."
+      },
+      {
+        "id": 2,
+        "author": "Sarah Johnson",
+        "rating": 4,
+        "date": "2024-01-10",
+        "content": "Great hotel with excellent amenities. The view was spectacular."
+      }
+    ],
+    "localHighlights": [
+      {
+        "title": "Beach Access",
+        "description": "Direct access to pristine white sand beaches",
+        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&h=200&fit=crop"
+      },
+      {
+        "title": "Local Markets",
+        "description": "Explore vibrant local markets just 5 minutes away",
+        "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&h=200&fit=crop"
+      }
+    ]
+  }
+]
