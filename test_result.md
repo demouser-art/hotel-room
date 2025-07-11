@@ -360,17 +360,10 @@
 
 ## test_plan:
   current_focus:
-    - "Fix Room Image Display"
-    - "Multiple Media Support"
-    - "Room Details Modal"
-    - "More Details Button"
-    - "Media Count Display"
-  stuck_tasks:
-    - "Fix Room Image Display"
-    - "Multiple Media Support"
-    - "Room Details Modal"
-    - "More Details Button"
-    - "Media Count Display"
+    - "Fix useDataApi Hook"
+    - "Booking Confirmation Page"
+    - "Booking Navigation Integration"
+  stuck_tasks: []
   test_all: false
   test_priority: "high_first"
 
