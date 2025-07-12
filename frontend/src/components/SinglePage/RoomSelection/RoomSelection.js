@@ -251,7 +251,7 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
         )}
       </div>
 
-      {selectedRooms.length > 0 && (
+      {selectedRooms && selectedRooms.length > 0 && (
         <SelectedRoomsWrapper>
           <div className="selected-rooms-header">
             <h3>Selected Rooms ({selectedRooms.length})</h3>
