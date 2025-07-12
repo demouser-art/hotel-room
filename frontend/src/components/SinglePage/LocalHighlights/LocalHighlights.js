@@ -303,7 +303,7 @@ const LocalHighlights = ({ highlights }) => {
           <>
             <div className="location-modal-header">
               <h3 className="location-title">{selectedLocation.name}</h3>
-              <button className="close-btn" onClick={handleCloseModal}>
+              <button className="close-btn" onClick={closeModal}>
                 <CloseOutlined />
               </button>
             </div>
