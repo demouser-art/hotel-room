@@ -136,13 +136,24 @@ const BookingConfirmation = () => {
 
   const handleBookingSubmit = () => {
     // Handle booking submission
-    console.log('Booking submitted with:', {
+    const bookingData = {
       paymentOption,
       paymentMethod,
       cardType,
       billingInfo,
-      total: paymentOption === 'full' ? total : depositAmount
-    });
+      total: paymentOption === 'full' ? total : depositAmount,
+      isUserLoggedIn,
+      selectedSavedCard: selectedSavedCard || null,
+      userHasSavedCards: isUserLoggedIn && savedCards.length > 0
+    };
+    
+    console.log('Booking submitted with:', bookingData);
+    
+    if (selectedSavedCard) {
+      console.log('Payment will be processed using saved card:', selectedSavedCard);
+    } else {
+      console.log('Payment will be processed with new card details');
+    }
   };
 
   return (
