@@ -216,15 +216,35 @@ const LocalHighlights = ({ highlights }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const handleLocationClick = (location) => {
+  const showLocationModal = (location) => {
     setSelectedLocation(location);
     setIsModalVisible(true);
   };
 
-  const handleCloseModal = () => {
+  const closeModal = () => {
     setIsModalVisible(false);
     setSelectedLocation(null);
   };
+
+  // If highlights is undefined or empty, don't render anything
+  if (!highlights || highlights.length === 0) {
+    return null;
+  }
+
+  // Transform the simple highlights array into the expected format
+  const transformedHighlights = [{
+    category: "Local Attractions",
+    icon: "environment",
+    locations: highlights.map((highlight, index) => ({
+      id: index + 1,
+      name: highlight.title,
+      description: highlight.description,
+      image: highlight.image,
+      distance: "Nearby",
+      travelTime: "5 min",
+      highlights: [highlight.description]
+    }))
+  }];
 
   return (
     <LocalHighlightsWrapper>
@@ -234,7 +254,7 @@ const LocalHighlights = ({ highlights }) => {
       </div>
 
       <div className="highlights-grid">
-        {highlights.map((categoryGroup, index) => (
+        {transformedHighlights.map((categoryGroup, index) => (
           <Card key={index} className="category-card" bordered={false}>
             <div className="category-header">
               <div className="category-title">{categoryGroup.category}</div>
