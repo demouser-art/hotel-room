@@ -297,6 +297,172 @@ const BookingConfirmationWrapper = styled.div`
     }
   }
 
+  /* Saved Cards */
+  .saved-cards-section {
+    margin-bottom: 24px;
+
+    .saved-cards-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .saved-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .saved-card-item {
+      border: 2px solid #e6e6e6;
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: white;
+      position: relative;
+
+      &:hover {
+        border-color: #1890ff;
+        box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+      }
+
+      &.selected {
+        border-color: #1890ff;
+        background: #f0f8ff;
+        box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+      }
+
+      .saved-card-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 12px;
+
+        .card-info {
+          flex: 1;
+
+          .card-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+
+            .card-icon {
+              font-size: 20px;
+            }
+
+            .card-type {
+              font-weight: 600;
+              color: #333;
+              font-size: 14px;
+            }
+          }
+
+          .card-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 8px;
+
+            .card-number {
+              font-family: 'Courier New', monospace;
+              font-size: 16px;
+              font-weight: 600;
+              color: #333;
+              letter-spacing: 1px;
+            }
+
+            .card-expiry {
+              font-size: 14px;
+              color: #666;
+              font-family: 'Courier New', monospace;
+            }
+          }
+
+          .card-holder {
+            font-size: 14px;
+            color: #666;
+            text-transform: capitalize;
+          }
+        }
+
+        .default-badge {
+          background: #52c41a;
+          color: white;
+          padding: 4px 12px;
+          border-radius: 12px;
+          font-size: 12px;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+
+      .card-actions {
+        display: flex;
+        gap: 12px;
+        padding-top: 12px;
+        border-top: 1px solid #f0f0f0;
+
+        .action-btn {
+          background: none;
+          border: 1px solid #d9d9d9;
+          padding: 6px 12px;
+          border-radius: 6px;
+          font-size: 12px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          color: #666;
+
+          &:hover {
+            border-color: #1890ff;
+            color: #1890ff;
+          }
+
+          &.delete {
+            border-color: #ff4d4f;
+            color: #ff4d4f;
+
+            &:hover {
+              background: #ff4d4f;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+
+    .add-new-card-btn {
+      width: 100%;
+      padding: 16px;
+      border: 2px dashed #d9d9d9;
+      border-radius: 12px;
+      background: #fafafa;
+      color: #666;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      .add-icon {
+        font-size: 20px;
+        font-weight: 300;
+      }
+
+      &:hover {
+        border-color: #1890ff;
+        color: #1890ff;
+        background: #f0f8ff;
+      }
+    }
+  }
+
   /* Billing Info */
   .billing-info {
     .billing-form {
