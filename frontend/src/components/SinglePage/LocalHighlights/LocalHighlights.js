@@ -294,7 +294,7 @@ const LocalHighlights = ({ highlights }) => {
 
       <LocationModal
         open={isModalVisible}
-        onCancel={handleCloseModal}
+        onCancel={closeModal}
         footer={null}
         width={600}
         closable={false}
