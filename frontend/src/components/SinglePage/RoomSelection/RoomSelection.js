@@ -157,7 +157,7 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
       </div>
 
       <div className="rooms-grid">
-        {roomTypes.map(room => (
+        {roomTypes && roomTypes.length > 0 ? roomTypes.map(room => (
           <RoomCard key={room.id} available={room.available}>
             <div className="room-image">
               <img src={getMainImage(room)} alt={room.name} />
