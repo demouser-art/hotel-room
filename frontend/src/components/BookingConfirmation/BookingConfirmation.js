@@ -276,47 +276,118 @@ const BookingConfirmation = () => {
               {/* Payment Method */}
               <div className="section payment-method">
                 <h3 className="section-title">Pay with</h3>
-                <div className="payment-methods">
-                  <label className="method-option">
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      value="card"
-                      checked={paymentMethod === 'card'}
-                      onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <span>Credit Card/Debit</span>
-                  </label>
-                  <label className="method-option">
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      value="different"
-                      checked={paymentMethod === 'different'}
-                      onChange={(e) => setPaymentMethod(e.target.value)}
-                    />
-                    <span>Different Card/Debit</span>
-                  </label>
-                </div>
-
-                <div className="card-selection">
-                  <div className="card-options">
+                
+                {/* Show saved cards for logged-in users */}
+                {isUserLoggedIn && savedCards.length > 0 && (
+                  <div className="saved-cards-section">
+                    <h4 className="saved-cards-title">Your Saved Cards</h4>
+                    <div className="saved-cards-list">
+                      {savedCards.map((card) => (
+                        <div 
+                          key={card.id} 
+                          className={`saved-card-item ${selectedSavedCard?.id === card.id ? 'selected' : ''}`}
+                          onClick={() => handleSavedCardSelect(card)}
+                        >
+                          <div className="saved-card-content">
+                            <div className="card-info">
+                              <div className="card-brand">
+                                <span className="card-icon">
+                                  {card.type === 'visa' ? '💳' : '🔴'}
+                                </span>
+                                <span className="card-type">
+                                  {card.type.toUpperCase()}
+                                </span>
+                              </div>
+                              <div className="card-details">
+                                <span className="card-number">•••• •••• •••• {card.lastFour}</span>
+                                <span className="card-expiry">{card.expiryMonth}/{card.expiryYear}</span>
+                              </div>
+                              <div className="card-holder">{card.cardholderName}</div>
+                            </div>
+                            {card.isDefault && (
+                              <span className="default-badge">Default</span>
+                            )}
+                          </div>
+                          <div className="card-actions">
+                            <button 
+                              className="action-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleSetAsDefault(card.id);
+                              }}
+                            >
+                              Set Default
+                            </button>
+                            <button 
+                              className="action-btn delete"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleDeleteCard(card.id);
+                              }}
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    
                     <button 
-                      className={`card-option ${cardType === 'visa' ? 'active' : ''}`}
-                      onClick={() => setCardType('visa')}
+                      className="add-new-card-btn"
+                      onClick={handleAddNewCard}
                     >
-                      <span className="card-icon">💳</span>
-                      VISA
-                    </button>
-                    <button 
-                      className={`card-option ${cardType === 'mastercard' ? 'active' : ''}`}
-                      onClick={() => setCardType('mastercard')}
-                    >
-                      <span className="card-icon">🔴</span>
-                      Mastercard
+                      <span className="add-icon">+</span>
+                      Add New Card
                     </button>
                   </div>
-                </div>
+                )}
+
+                {/* Show regular payment options for non-logged-in users or when adding new card */}
+                {(!isUserLoggedIn || showAddNewCard) && (
+                  <>
+                    <div className="payment-methods">
+                      <label className="method-option">
+                        <input
+                          type="radio"
+                          name="paymentMethod"
+                          value="card"
+                          checked={paymentMethod === 'card'}
+                          onChange={(e) => setPaymentMethod(e.target.value)}
+                        />
+                        <span>Credit Card/Debit</span>
+                      </label>
+                      <label className="method-option">
+                        <input
+                          type="radio"
+                          name="paymentMethod"
+                          value="different"
+                          checked={paymentMethod === 'different'}
+                          onChange={(e) => setPaymentMethod(e.target.value)}
+                        />
+                        <span>Different Card/Debit</span>
+                      </label>
+                    </div>
+
+                    <div className="card-selection">
+                      <div className="card-options">
+                        <button 
+                          className={`card-option ${cardType === 'visa' ? 'active' : ''}`}
+                          onClick={() => setCardType('visa')}
+                        >
+                          <span className="card-icon">💳</span>
+                          VISA
+                        </button>
+                        <button 
+                          className={`card-option ${cardType === 'mastercard' ? 'active' : ''}`}
+                          onClick={() => setCardType('mastercard')}
+                        >
+                          <span className="card-icon">🔴</span>
+                          Mastercard
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
 
               {/* Billing Information */}
