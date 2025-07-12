@@ -233,19 +233,32 @@ export const RoomCard = styled.div.withConfig({
       position: absolute;
       bottom: 12px;
       left: 12px;
-      background: rgba(0, 0, 0, 0.8);
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
       color: white;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      &:before {
+        content: '📷';
+        font-size: 12px;
+      }
 
       &:hover {
-        background: rgba(0, 0, 0, 0.9);
-        transform: translateY(-1px);
+        background: linear-gradient(135deg, rgba(24, 144, 255, 0.9), rgba(24, 144, 255, 1));
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.4);
       }
     }
   }
