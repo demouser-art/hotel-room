@@ -424,16 +424,31 @@ export const RoomCard = styled.div.withConfig({
       margin-top: 16px;
       border-top: 1px solid #f0f0f0;
       padding-top: 16px;
+      text-align: center;
 
       .details-link-btn {
         color: #1890ff;
         font-size: 14px;
-        font-weight: 500;
-        padding: 0;
+        font-weight: 600;
+        padding: 8px 20px;
         height: auto;
+        border: 1px solid #1890ff;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+
+        &:before {
+          content: '👁️';
+          font-size: 12px;
+        }
 
         &:hover {
-          color: #40a9ff;
+          color: white;
+          background: #1890ff;
+          transform: translateY(-1px);
+          box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
         }
       }
     }
