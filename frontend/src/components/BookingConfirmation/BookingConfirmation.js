@@ -23,7 +23,7 @@ const BookingConfirmation = () => {
   });
 
   // Simple condition to simulate logged-in user (for design purposes)
-  const [isUserLoggedIn] = useState(false); // Change to false to see non-logged-in state
+  const [isUserLoggedIn] = useState(true); // Change to false to see non-logged-in state
 
   // Static mock data for saved cards (design purposes only)
   const savedCards = [
