@@ -11,6 +11,8 @@ const BookingConfirmation = () => {
   const [paymentOption, setPaymentOption] = useState('full');
   const [paymentMethod, setPaymentMethod] = useState('card');
   const [cardType, setCardType] = useState('visa');
+  const [selectedSavedCard, setSelectedSavedCard] = useState(null);
+  const [showAddNewCard, setShowAddNewCard] = useState(false);
   const [billingInfo, setBillingInfo] = useState({
     addressLine1: '',
     addressLine2: '',
@@ -19,6 +21,71 @@ const BookingConfirmation = () => {
     country: '',
     zipCode: ''
   });
+
+  // Simple condition to simulate logged-in user (for design purposes)
+  const [isUserLoggedIn] = useState(true); // Change to false to see non-logged-in state
+
+  // Static mock data for saved cards (design purposes only)
+  const savedCards = [
+    {
+      id: 1,
+      type: 'visa',
+      lastFour: '4242',
+      expiryMonth: '12',
+      expiryYear: '2026',
+      cardholderName: 'John Doe',
+      isDefault: true
+    },
+    {
+      id: 2,
+      type: 'mastercard',
+      lastFour: '8888',
+      expiryMonth: '08',
+      expiryYear: '2025',
+      cardholderName: 'John Doe',
+      isDefault: false
+    },
+    {
+      id: 3,
+      type: 'visa',
+      lastFour: '1234',
+      expiryMonth: '03',
+      expiryYear: '2027',
+      cardholderName: 'John Doe',
+      isDefault: false
+    }
+  ];
+
+  // Mock functions for card operations (design purposes - just console logs)
+  const handleSavedCardSelect = (card) => {
+    console.log('Selected saved card:', card);
+    setSelectedSavedCard(card);
+    setShowAddNewCard(false);
+    setPaymentMethod('saved-card');
+    
+    // Auto-fill billing info from saved card
+    setBillingInfo(prev => ({
+      ...prev,
+      // In real implementation, this would come from user's saved billing address
+    }));
+  };
+
+  const handleAddNewCard = () => {
+    console.log('Add new card clicked');
+    setShowAddNewCard(true);
+    setSelectedSavedCard(null);
+    setPaymentMethod('card');
+  };
+
+  const handleDeleteCard = (cardId) => {
+    console.log('Delete card with ID:', cardId);
+    // In real implementation, this would call API to delete card
+  };
+
+  const handleSetAsDefault = (cardId) => {
+    console.log('Set card as default with ID:', cardId);
+    // In real implementation, this would call API to set default card
+  };
 
   // Sample data - in real app this would come from booking state
   const tripData = {
