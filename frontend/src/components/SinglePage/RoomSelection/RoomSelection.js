@@ -195,11 +195,17 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
               <div className="room-amenities">
                 <div className="amenities-title">Room Amenities:</div>
                 <div className="amenities-list">
-                  {room.amenities.slice(0, 4).map((amenity, index) => (
-                    <span key={index} className="amenity-tag">{amenity.amenityText}</span>
-                  ))}
-                  {room.amenities.length > 4 && (
-                    <span className="amenity-tag">+{room.amenities.length - 4} more</span>
+                  {room.amenities && room.amenities.length > 0 ? (
+                    <>
+                      {room.amenities.slice(0, 4).map((amenity, index) => (
+                        <span key={index} className="amenity-tag">{amenity.amenityText}</span>
+                      ))}
+                      {room.amenities.length > 4 && (
+                        <span className="amenity-tag">+{room.amenities.length - 4} more</span>
+                      )}
+                    </>
+                  ) : (
+                    <span className="amenity-tag">Standard amenities included</span>
                   )}
                 </div>
               </div>
