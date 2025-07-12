@@ -238,7 +238,11 @@ const RoomSelection = ({ roomTypes, onRoomSelect, selectedRooms, onUpdateSelecti
               )}
             </div>
           </RoomCard>
-        ))}
+        )) : (
+          <div style={{textAlign: 'center', padding: '40px', color: '#666'}}>
+            No rooms available
+          </div>
+        )}
       </div>
 
       {selectedRooms.length > 0 && (
