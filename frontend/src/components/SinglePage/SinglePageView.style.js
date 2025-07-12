@@ -187,7 +187,9 @@ export const RoomSelectionWrapper = styled.div`
   }
 `;
 
-export const RoomCard = styled.div`
+export const RoomCard = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['available'].includes(prop),
+})`
   background: white;
   border-radius: 12px;
   overflow: hidden;
