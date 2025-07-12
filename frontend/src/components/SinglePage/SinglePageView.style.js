@@ -210,11 +210,40 @@ export const RoomCard = styled.div.withConfig({
     height: 100%;
     overflow: hidden;
     position: relative;
+    border-radius: 8px 0 0 8px;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Gallery preview overlay on hover */
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        transparent 0%,
+        transparent 70%,
+        rgba(24, 144, 255, 0.1) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    &:hover:before {
+      opacity: 1;
     }
 
     .availability-badge {
@@ -223,10 +252,13 @@ export const RoomCard = styled.div.withConfig({
       right: 12px;
       background: ${props => props.available > 0 ? '#52c41a' : '#ff4d4f'};
       color: white;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     .photo-count-overlay {
