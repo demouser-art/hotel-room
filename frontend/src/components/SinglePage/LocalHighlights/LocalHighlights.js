@@ -268,7 +268,7 @@ const LocalHighlights = ({ highlights }) => {
                 <div 
                   key={location.id} 
                   className="location-item"
-                  onClick={() => handleLocationClick(location)}
+                  onClick={() => showLocationModal(location)}
                 >
                   <div className="location-info">
                     <div className="location-name">{location.name}</div>
